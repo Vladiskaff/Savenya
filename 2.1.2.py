@@ -24,6 +24,7 @@ def read():
 
 vacs, header = read()
 prof = input('Введите название профессии: ')
+master = input('Введите данные для печати: ')
 dlist = []
 valute = {
     "RUR": 1,
