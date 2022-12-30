@@ -5,6 +5,14 @@ import numpy as np
 
 
 def read():
+    '''
+        Функция для считывания CSV-файла
+        Returns:
+            vacs(str): получает массив с вакансиями
+        Array:
+            header(str):получает шапку таблицы
+
+    '''
     file = input('Введите название файла: ')
     with open(file, encoding='utf-8-sig') as r_file:
         file = csv.reader(r_file, delimiter=",")
@@ -39,6 +47,7 @@ valute = {
     "KZT": 0.13,
 }
 for vac in vacs:
+
     salary_currency = vac[header.index('salary_currency')]
     salary_from = int(float(vac[header.index('salary_from')])) * valute[salary_currency]
     salary_to = int(float(vac[header.index('salary_to')])) * valute[salary_currency]
@@ -49,6 +58,18 @@ for vac in vacs:
     dlist.append(a)
 
 def stat(vacs):
+    '''
+    Функция получает и обратаывает информацию о вакансиях и создаёт массивы уже только с необъодимой информацией вакансий
+    Array:
+        vacs(str): массив с ваканскиями
+    Returns:
+        din_zp: Уровень зарплат по годам
+        counter_vac: Ежегодноое количество вакансий
+        pr_counter: Количество вакансий для выбранной профессии(по годам)
+        zp_city: Зарплата определенной профессии в городах
+        zp_din_pr: Зарплата у определенной профессии(по годам)
+        counter_city: Доля данной вакансии в городе
+    '''
     zp_in_city = {}
     counter = {}
     zp = {}
